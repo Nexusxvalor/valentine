@@ -1,0 +1,369 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("heart-bg.jpg");
+    font-family: "Pixelify Sans", sans-serif;
+}
+
+/* Envelope Screen */
+#envelope-container {
+    text-align: center;
+    cursor:pointer;
+}
+
+@keyframes pulse {
+    0% {
+        transform:scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+#envelope{
+    width: 200px;
+    animation: pulse 1.5s infinite;
+    cursor: pointer;
+}
+
+#letter-container{
+    display: none;
+    position:fixed;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.letter-window{
+    width: 90vw;
+    max-width: 800px;
+    aspect-ratio: 3/2;
+    padding: 20px 20px 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url("window.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 12px;
+    gap: 1px;
+    padding-top: 180px;
+
+    transform: scale(1.2);
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.letter-window.open {
+    transform: scale(1);
+    opacity: 1;
+}
+
+h1 {
+    font-size: 30px;
+    margin:0;
+}
+
+p {
+    font-size: 40px;
+}
+
+/* Cat */
+
+.cat {
+    width: 250px;
+    margin: 10px 0;
+    transition: width 0.4s ease;
+}
+
+.letter-window.final .cat {
+    width: 180px;
+}
+
+/* buttons */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    position: relative;
+}
+
+.no-wrapper{
+    position:relative;
+}
+
+.btn {
+    width: 120px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.yes-btn,
+.no-btn {
+width: 120px;
+height: auto;
+display: inline-block;
+}
+
+.yes-btn {
+    position: relative;
+    z-index: 2;
+    transform-origin: center center;
+    transition: transform 0.3s ease;
+}
+
+.no-btn {
+    z-index: 1;
+    position: relative;
+    transition: transform 0.15s ease;
+    cursor: default;
+}
+
+
+/* Heart Button */
+.heart-button {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 65px;
+  cursor: pointer;
+  z-index: 9999;
+  animation: bounce 2s infinite;
+  filter: drop-shadow(0 0 8px rgba(255, 120, 150, 0.6));
+}
+
+/* Bounce WITHOUT breaking corner position */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+
+/* Popup Background */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 192, 203, 0.6);
+  backdrop-filter: blur(4px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+/* Popup Box */
+.popup-content {
+  position: relative;
+  background: #fff0f5;
+  padding: 25px;
+  border: 4px solid #ff7aa2;
+  border-radius: 25px;
+
+  width: 90%;
+  max-width: 500px;
+  max-height: 85vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  overflow: hidden;
+}
+
+/* Image inside popup */
+.popup-image {
+  max-width: 100%;
+  max-height: 60vh;
+  object-fit: contain;
+  display: block;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+  border-radius: 12px;
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #ff4d6d;
+  color: white;
+  font-size: 20px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Animation */
+@keyframes popIn {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+.popup-page {
+  display: none;
+  text-align: center;
+}
+
+.popup-page.active {
+  display: block;
+}
+
+.love-text {
+  font-family: 'Pixelify Sans', sans-serif;
+  font-size: 18px;
+  color: #d14b6b;
+  margin: 20px 10px;
+}
+
+.next-btn, .back-btn {
+  margin-top: 15px;
+  padding: 8px 18px;
+  border-radius: 12px;
+  align-self: center;
+  background: #ff7aa2;
+  color: white;
+  cursor: pointer;
+  border-radius: 10px;
+  font-family: 'Pixelify Sans', sans-serif;
+}
+.hearts {
+  position: absolute;
+  bottom: 0;
+  width: 100px;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.left-hearts {
+  left: 0;
+}
+
+.right-hearts {
+  right: 0;
+}
+
+.floating-heart {
+  width: 28px;
+  height: 28px;
+  background: url("pixel-heart.png") no-repeat center;
+  background-size: contain;
+  position: absolute;
+  bottom: 0;
+  animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(0.8);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-350px) scale(1.2);
+    opacity: 0;
+  }
+}
+.love-text {
+  letter-spacing: 1px;
+}
+.ending-gif {
+  display: block;
+  margin: 20px auto;
+  width: 150px;     /* adjust size */
+  height: auto;
+filter: drop-shadow(0 10px 20px rgba(255, 120, 150, 0.3));
+}	
+.mini-coupon {
+    position: relative;
+    display: inline-block;
+    font-size: 18px;
+    padding: 16px 24px;
+    background: linear-gradient(
+        to bottom,
+        #fff0f6 0%,
+        #ffe6ee 60%,
+        #ffd6e4 100%
+    );
+    border: 3px dashed #ff7aa2;
+    border-radius: 18px;
+    color: #c94f72;
+    text-align: center;
+
+    /* Depth */
+    box-shadow:0 8px 0 #f4c7d4,              /* bottom thickness */
+  0 15px 25px rgba(0,0,0,0.15); /* soft drop shadow */
+
+    transition: transform 0.2s ease;
+}
+
+.mini-coupon::before,
+.mini-coupon::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: #f4c7d4;   /* darker than coupon */
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: inset 0 3px 4px rgba(0,0,0,0.15);
+}
+
+.mini-coupon::before {
+  left: -9px;
+}
+
+.mini-coupon::after {
+  right: -9px;
+}
+@keyframes pastelGlow {
+  from {
+    box-shadow:
+      0 12px 0 #f8cdd5,
+      0 20px 40px rgba(255, 150, 180, 0.2);
+  }
+  to {
+    box-shadow:
+      0 12px 0 #f8cdd5,
+      0 25px 55px rgba(255, 150, 180, 0.4);
+  }
+}
+
+.mini-coupon:hover {
+    transform: translateY(-4px);
+}
+.coupon-title {
+  font-size: 16px;
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+  color: #ff5e8a;
+}
+
+.coupon-line {
+  border: none;
+  border-top: 2px dashed #ff9fbc;
+  margin: 8px 0;
+  opacity: 0.6;
+}

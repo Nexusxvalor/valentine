@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Valentine Letter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aldrich&family=Pixelify+Sans:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Envelope Screen -->
+    <div id="envelope-container">
+      <img src="envelope.png" alt="Envelope" id="envelope" />
+      <p>♡ Letter for Melll ♡</p>
+    </div>
+
+    <!-- Letter Screen -->
+    <div id="letter-container">
+      <div class="letter-window">
+        <h1 id="letter-title">Will you be my Valentine?</h1>
+
+        <img src="cat_heart.gif" class="cat" id="letter-cat" />
+
+        <div class="buttons" id="letter-buttons">
+          <img src="yes.png" class="btn yes-btn" alt="Yes" />
+
+          <div class="no-wrapper">
+            <img src="no.png" class="btn no-btn" alt="No" />
+          </div>
+        </div>
+
+        <div id="final-text" class="mini-coupon" style="display: none;">
+  <div class="coupon-title">🎟 Anniversary COUPON 🎟</div>
+
+  <hr class="coupon-line">
+
+  Redeem For: 1 Gift of Your Choice 🎁 ✨<br>
+  For Our Anniversary 💗<br>
+ Valid Forever (Because So Are We) 
+</div>
+
+
+
+<!-- Popup -->
+<div id="photoPopup" class="popup">
+  <div class="popup-content">
+
+    <span class="close-btn" id="closePopup">×</span>
+
+    <!-- Page 1: Image -->
+    <div class="popup-page active" id="page1">
+<div class="hearts left-hearts"></div>
+<div class="hearts right-hearts"></div>
+
+      <img src="your-photo.png" class="popup-image" />
+      <button class="next-btn" id="nextBtn">Next 💕</button>
+    </div>
+
+    <!-- Page 2: Text -->
+    <div class="popup-page" id="page2">
+      <p class="love-text">
+  I don’t always say it perfectly,  
+  but you really do mean so much to me.  
+  You make ordinary days feel special. 
+</p>
+
+<p class="love-text">
+  From watching movies together,  
+  to falling asleep on call,  
+  to helping each other through work.
+</p>
+
+<p class="love-text">
+  Being with you like this  
+  is already enough for me. 
+</p>
+<p class="love-text">
+  Before I end this, I just want to say thank you for always being here. I love you. 💕
+</p>
+<img src="cute.gif" class="ending-gif" />
+      <button class="back-btn" id="backBtn">⬅ Back</button>
+    </div>
+
+  </div>
+</div>
+
+
+    </div>
+<!-- Heart Button --> 
+<img src="heart-button.png" id="heartBtn" class="heart-button" />
+    <script src="script.js"></script>
+  </body>
+</html>
